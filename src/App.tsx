@@ -283,10 +283,10 @@ export default function App() {
                 secondColor: "#D97706"
               },
               features: [
-                "每天 500 次使用次数",
+                "每天 1000 次使用次数",
                 "所有免费版功能",
                 "OpenAI API 支持",
-                "最多添加 20 个自定义提示词",
+                "最多添加 100 个自定义提示词",
                 "社区技术支持"
               ]
             },
@@ -305,7 +305,7 @@ export default function App() {
               isPopular: true,
               features: [
                 "每天无限次使用",
-                "所有免费版功能",
+                "所有基础班功能",
                 "更多自定义 AI 服务支持",
                 "无限制自定义提示词",
                 "自定义语录模板",
