@@ -12,17 +12,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { MagicCard } from "@/components/ui/magic-card"
-import Marquee from "@/components/ui/marquee"
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { Check } from "lucide-react"
-import { useState } from "react"
-import { Switch } from "@/components/ui/switch"
 import { motion } from "framer-motion"
 
 export default function App() {
-  const [isAnnual, setIsAnnual] = useState(false)
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       {/* Header */}
@@ -64,6 +59,12 @@ export default function App() {
             </NavigationMenu>
           </div>
           <div className="flex items-center gap-4">
+            <div className="hidden items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary md:flex">
+              <svg viewBox="0 0 24 24" className="size-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.539 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+              </svg>
+              macOS Native
+            </div>
             <ShimmerButton>
               <span className="text-primary">立即下载</span>
             </ShimmerButton>
@@ -176,7 +177,7 @@ export default function App() {
             {
               title: "AI 驱动",
               description: "智能语录生成系统",
-              content: "基于 OpenAI 的强大模型，结合精心设计的提示词，生成高质量的语录内容",
+              content: "基于 OpenAI 的强大模型，结合设计提示词，生成高质量的语录内容",
               gradient: "from-purple-500/10"
             },
             {
@@ -233,28 +234,13 @@ export default function App() {
           />
         </motion.div>
 
-        <div className="mb-8 flex items-center justify-center gap-4">
-          <span className={`text-sm ${!isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>月付</span>
-          <Switch
-            checked={isAnnual}
-            onCheckedChange={setIsAnnual}
-            className="data-[state=checked]:bg-primary"
-          />
-          <div className="flex items-center gap-2">
-            <span className={`text-sm ${isAnnual ? 'text-primary' : 'text-muted-foreground'}`}>年付</span>
-            <span className="animate-pulse rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
-              省 20%
-            </span>
-          </div>
-        </div>
-
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-4 md:gap-8 lg:gap-12">
           {[
             {
               type: "free",
               title: "免费版",
               badge: "体验版",
-              price: "0",
+              price: "¥0",
               period: "永久",
               description: "无需信用卡，立即开始使用",
               neonColors: {
@@ -273,11 +259,10 @@ export default function App() {
             {
               type: "basic",
               title: "基础版",
-              badge: "基础版",
-              price: isAnnual ? "45.6" : "4",
-              period: isAnnual ? "年" : "月",
-              monthlyPrice: isAnnual ? "3.8" : null,
-              description: isAnnual ? "省 20%" : "灵活计费，随时取消",
+              badge: "入门首选",
+              price: "¥49",
+              period: "永久",
+              description: "一次付费，终身使用",
               neonColors: {
                 firstColor: "#F59E0B",
                 secondColor: "#D97706"
@@ -287,17 +272,17 @@ export default function App() {
                 "所有免费版功能",
                 "OpenAI API 支持",
                 "最多添加 100 个自定义提示词",
-                "社区技术支持"
+                "社区技术支持",
+                "终身免费更新"
               ]
             },
             {
               type: "pro",
               title: "专业版",
               badge: "推荐",
-              price: isAnnual ? "91.2" : "8",
-              period: isAnnual ? "年" : "月",
-              monthlyPrice: isAnnual ? "7.6" : null,
-              description: isAnnual ? "省 20%" : "灵活计费，随时取消",
+              price: "¥89",
+              period: "永久",
+              description: "一次付费，终身使用",
               neonColors: {
                 firstColor: "#7C3AED",
                 secondColor: "#EC4899"
@@ -305,30 +290,32 @@ export default function App() {
               isPopular: true,
               features: [
                 "每天无限次使用",
-                "所有基础班功能",
+                "所有基础版功能",
                 "更多自定义 AI 服务支持",
                 "无限制自定义提示词",
                 "自定义语录模板",
-                "优先技术支持"
+                "优先技术支持",
+                "终身免费更新"
               ]
             },
             {
               type: "cloud",
               title: "云端版",
-              badge: "无限制",
-              price: isAnnual ? "129.6" : "12",
-              period: isAnnual ? "年" : "月",
-              monthlyPrice: isAnnual ? "10.8" : null,
-              description: isAnnual ? "省 20%" : "灵活计费，随时取消",
+              badge: "即将推出",
+              price: "敬请期待",
+              period: "",
+              description: "更多精彩功能即将到来",
               neonColors: {
-                firstColor: "#059669",
-                secondColor: "#0EA5E9"
+                firstColor: "#6B7280",
+                secondColor: "#9CA3AF"
               },
+              isComingSoon: true,
               features: [
-                "每天 500 次调用云端服务",
+                "每天 1000 次调用云端服务",
                 "所有专业版功能",
                 "内置精选提示词库",
                 "更多自定义 AI 服务支持",
+                "无需配置 API",
                 "云端 API 服务",
                 "优先技术支持"
               ]
@@ -340,15 +327,20 @@ export default function App() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.8 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: plan.isComingSoon ? 0 : -10 }}
             >
               <NeonGradientCard
                 className={`relative overflow-hidden backdrop-blur-sm bg-background/80 ${
                   plan.isPopular ? "scale-105 shadow-xl" : ""
-                }`}
+                } ${plan.isComingSoon ? "opacity-75" : ""}`}
                 neonColors={plan.neonColors}
               >
-                <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[${plan.neonColors.firstColor}] to-[${plan.neonColors.secondColor}]`} />
+                <div 
+                  className="absolute inset-x-0 top-0 h-1.5" 
+                  style={{
+                    background: `linear-gradient(to right, ${plan.neonColors.firstColor}, ${plan.neonColors.secondColor})`
+                  }}
+                />
                 {plan.isPopular && (
                   <>
                     <div className="absolute -right-16 -top-16 size-32 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] opacity-20 blur-2xl" />
@@ -362,20 +354,18 @@ export default function App() {
                   <CardTitle className="text-2xl">{plan.title}</CardTitle>
                   <div className="space-y-1">
                     <CardDescription className="text-xl font-semibold">
-                      ${plan.price}/{plan.period}
+                      {plan.price}{plan.period ? `/${plan.period}` : ''}
                     </CardDescription>
-                    <CardDescription className="text-sm text-muted-foreground">
-                      {plan.monthlyPrice ? (
-                        <span>
-                          相当于 <span className="font-semibold text-primary">${plan.monthlyPrice}/月</span>
-                          <span className="ml-1 inline-flex items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
-                            {plan.description}
-                          </span>
-                        </span>
-                      ) : (
-                        plan.description
-                      )}
-                    </CardDescription>
+                    {!plan.isComingSoon && (
+                      <CardDescription className="text-sm text-muted-foreground">
+                        {plan.description}
+                      </CardDescription>
+                    )}
+                    {plan.isComingSoon && (
+                      <CardDescription className="text-sm text-muted-foreground">
+                        {plan.description}
+                      </CardDescription>
+                    )}
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -397,7 +387,7 @@ export default function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative px-4 py-20">
+      {/* <section className="relative px-4 py-20">
         <GradualSpacing
           text="用户评价"
           className="mb-12 text-center text-3xl font-bold"
@@ -411,7 +401,7 @@ export default function App() {
           {[
             {
               name: "张三",
-              role: "自媒体创作者",
+              role: "自媒体���作者",
               content: "Quotify 让我的创作过程变得更加有趣，再也不用为找梗发愁了！",
               avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" // 使用 DiceBear 生成头像
             },
@@ -456,7 +446,7 @@ export default function App() {
             </MagicCard>
           ))}
         </Marquee>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section id="faq" className="relative px-4 py-20 bg-secondary/50">
@@ -480,9 +470,9 @@ export default function App() {
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
                   <li><span className="font-medium">免费版</span>：每天 100 次使用额度，支持基础语录类型和 OpenAI API，可添加 10 个自定义提示词</li>
-                  <li><span className="font-medium">基础版</span>：每天 500 次使用额度，支持所有免费版功能，可添加 20 个自定义提示词</li>
-                  <li><span className="font-medium">专业版</span>：无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板</li>
-                  <li><span className="font-medium">云端版</span>：包含专业版所有功能，额外提供每天 500 次云端 AI 服务调用，内置精选提示词库</li>
+                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次使用额度，支持所有免费版功能，可添加 100 个自��义提示词，终身免费更新</li>
+                  <li><span className="font-medium">专业版</span>：¥89 买断，无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板，终身免费更新</li>
+                  <li><span className="font-medium">云端版</span>：即将推出，包含专业版所有功能，额外提供每天 1000 次云端 AI 服务调用，无需配置 API</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -490,8 +480,8 @@ export default function App() {
             <AccordionItem value="item-3">
               <AccordionTrigger>如何配置 API？</AccordionTrigger>
               <AccordionContent>
-                在设置面板中，你可以轻松配置 OpenAI API。云端版用户可以直接使用我们提供的云端服务，
-                无需配置个人 API。我们提供详细的配置指南，确保你能快速开始使用。
+                在设置面板中，你可以轻松配�� OpenAI API。我们提供详细的配置指南，确保你能快速开始使用。
+                未来推出的云端版用户可以直接使用我们提供的云端服务，无需配置个人 API。
               </AccordionContent>
             </AccordionItem>
 
@@ -499,7 +489,7 @@ export default function App() {
               <AccordionTrigger>支持哪些支付方式？</AccordionTrigger>
               <AccordionContent>
                 我们支持支付宝、微信支付等主流支付方式。选择你想要的版本后，点击购买按钮，
-                根据提示完成支付即可。系统会自动为你开通相应功能，立即可用。
+                根据提示完成一次性付款即可。系统会自动为你开通终身使用权限，立即可用。
               </AccordionContent>
             </AccordionItem>
 
@@ -510,7 +500,7 @@ export default function App() {
                   <li><span className="font-medium">文档中心</span>：提供详细的使用指南和常见问题解答</li>
                   <li><span className="font-medium">GitHub Issues</span>：可以提交问题和功能建议</li>
                   <li><span className="font-medium">社区支持</span>：加入我们的用户社区，分享使用经验</li>
-                  <li><span className="font-medium">专属支持</span>：云端版用户享有 24 小时优先响应服务</li>
+                  <li><span className="font-medium">专属支持</span>：付费用户享有优先响应服务</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -519,12 +509,96 @@ export default function App() {
               <AccordionTrigger>数据安全如何保障？</AccordionTrigger>
               <AccordionContent>
                 我们高度重视用户数据安全。所有的 API 调用都是端到端加密的，不会存储任何用户的输入内容。
-                云端版用户的数据存储在安全的云服务器上，采用行业标准的加密方案。你可以随时导出或删除你的数据。
+                所有数据都在本地处理，确保你的隐私安全。未来推出的云端版本将采用行业标准的加密方案，
+                确保云端数据的安全性。
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="border-t bg-background/80 backdrop-blur-sm">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {/* Logo & Description */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/icon.png"
+                  alt="Quotify Logo"
+                  className="size-8"
+                />
+                <span className="text-xl font-bold">Quotify</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                妙笔生花，一键成章
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="mb-4 text-sm font-semibold">快速链接</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>
+                  <a href="#features" className="hover:text-primary">功能介绍</a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-primary">定价方案</a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-primary">常见问题</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="mb-4 text-sm font-semibold">资源</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {/* <li>
+                  <a href="#" className="hover:text-primary">使用文档</a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">更新日志</a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">GitHub</a>
+                </li> */}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="mb-4 text-sm font-semibold">联系我们</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {/* <li>
+                  <a href="#" className="hover:text-primary">反馈建议</a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">加入社区</a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary">商务合作</a>
+                </li> */}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom */}
+          <div className="mt-8 border-t pt-8">
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Quotify. All rights reserved.
+              </p>
+              <div className="flex gap-4 text-sm text-muted-foreground">
+                <a href="#" className="hover:text-primary">隐私政策</a>
+                <a href="#" className="hover:text-primary">服务条款</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
