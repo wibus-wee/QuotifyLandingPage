@@ -213,7 +213,7 @@ export default function App() {
             {
               title: "场景丰富",
               description: "多样化的语录类型",
-              content: "从日常社交到创意写作，覆盖多种场景需求，让你���表达更加生动有趣",
+              content: "从日常社交到创意写作，覆盖多种场景需求，让你的表达更加生动有趣",
               gradient: "from-pink-500/10"
             },
             {
