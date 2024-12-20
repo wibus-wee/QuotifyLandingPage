@@ -16,6 +16,7 @@ import { NeonGradientCard } from "@/components/ui/neon-gradient-card"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
+import Safari from "@/components/ui/safari"
 
 export default function App() {
   return (
@@ -80,80 +81,109 @@ export default function App() {
       />
 
       {/* Hero Section */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center px-4">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <motion.div 
-            className="mb-8"
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <img
-              src="/icon.png"
-              alt="Quotify Icon"
-              className="size-32 drop-shadow-2xl"
+      <section className="relative flex min-h-screen items-center justify-center px-4">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 lg:flex-row lg:items-center">
+          {/* 左侧内容 */}
+          <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left lg:ml-16">
+            <motion.div 
+              className="mb-8"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <img
+                src="/icon.png"
+                alt="Quotify Icon"
+                className="size-32 drop-shadow-2xl"
+              />
+            </motion.div>
+
+            <SparklesText
+              text="Quotify"
+              sparklesCount={5}
+              className="mb-4 text-6xl font-bold tracking-tight"
             />
-          </motion.div>
 
-          <SparklesText
-            text="Quotify"
-            sparklesCount={5}
-            className="mb-4 text-6xl font-bold tracking-tight"
-          />
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <AnimatedShinyText className="text-xl">
+                ✨ 妙笔生花，一键成章
+              </AnimatedShinyText>
+            </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <AnimatedShinyText className="text-xl mx-2">
-              ✨ 妙笔生花，一键成章
-            </AnimatedShinyText>
-          </motion.div>
-          {/* 
-          <p className="text-muted-foreground mx-2 mt-4 max-w-2xl">
-          Your instant writing inspiration
-          </p> */}
+            <motion.div 
+              className="mt-8"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <ShimmerButton>
+                <span className="text-primary">
+                  立即下载
+                </span>
+              </ShimmerButton>
+            </motion.div>
 
+            {/* 特性预览 */}
+            <motion.div 
+              className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              {[
+                { icon: "✨", text: "智能生成" },
+                { icon: "🎯", text: "场景丰富" },
+                { icon: "⚡", text: "快捷方便" },
+                { icon: "🔒", text: "安全可靠" },
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.text}
+                  className="flex items-center gap-2 rounded-full bg-secondary/50 px-4 py-2 text-sm"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>{feature.icon}</span>
+                  <span>{feature.text}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* 右侧产品截图 */}
           <motion.div 
-            className="mt-8"
-            initial={{ y: 20, opacity: 0 }}
+            className="flex-1"
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
           >
-            <ShimmerButton>
-              <span className="text-primary">
-                立即下载
-              </span>
-            </ShimmerButton>
-          </motion.div>
-
-          {/* 特性预览 */}
-          <motion.div 
-            className="mt-12 flex flex-wrap justify-center gap-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
-            {[
-              { icon: "✨", text: "智能生成" },
-              { icon: "🎯", text: "场景丰富" },
-              { icon: "⚡", text: "快捷方便" },
-              { icon: "🔒", text: "安全可靠" },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.text}
-                className="flex items-center gap-2 rounded-full bg-secondary/50 px-4 py-2 text-sm"
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>{feature.icon}</span>
-                <span>{feature.text}</span>
-              </motion.div>
-            ))}
+            <div className="relative flex flex-col items-center">
+              <motion.img 
+                src="/screenshot-setting.png" 
+                alt="Quotify Screenshot" 
+                className="w-[400px] shadow-2xl"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              />
+              <motion.img 
+                src="/screenshot-item.png" 
+                alt="Quotify Screenshot" 
+                className="w-[1000px] shadow-2xl"
+                style={{
+                  marginTop: '-40px'
+                }}
+                initial={{ y: 40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }} 
+                transition={{ delay: 0.3, duration: 0.8 }}
+              />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -183,7 +213,7 @@ export default function App() {
             {
               title: "场景丰富",
               description: "多样化的语录类型",
-              content: "从日常社交到创意写作，覆盖多种场景需求，让你的表达更加生动有趣",
+              content: "从日常社交到创意写作，覆盖多种场景需求，让你���表达更加生动有趣",
               gradient: "from-pink-500/10"
             },
             {
@@ -401,7 +431,7 @@ export default function App() {
           {[
             {
               name: "张三",
-              role: "自媒体���作者",
+              role: "自媒体作者",
               content: "Quotify 让我的创作过程变得更加有趣，再也不用为找梗发愁了！",
               avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" // 使用 DiceBear 生成头像
             },
@@ -420,7 +450,7 @@ export default function App() {
             {
               name: "赵六",
               role: "内容创作者",
-              content: "一键生成各种风格的文案，提高了我的工作效率！",
+              content: "一键生成各种风格的文案，提高了我的���作效率！",
               avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Charlie"
             }
           ].map((testimonial, i) => (
@@ -461,7 +491,7 @@ export default function App() {
               <AccordionTrigger>Quotify 是如何工作的？</AccordionTrigger>
               <AccordionContent>
                 Quotify 会智能识别系统中的输入框，当你需要生成内容时，只需使用全局快捷键呼出面板，
-                选择合适的语录类型，AI 就会根据当前场景智能生成内容。支持一键插入，让写作过程更加流畅自然。
+                选择合适的语录类型，AI 就会根据当前场景智能生成内容。支持一键插入，让作过程更加流畅自然。
               </AccordionContent>
             </AccordionItem>
 
@@ -470,7 +500,7 @@ export default function App() {
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
                   <li><span className="font-medium">免费版</span>：每天 100 次使用额度，支持基础语录类型和 OpenAI API，可添加 10 个自定义提示词</li>
-                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次使用额度，支持所有免费版功能，可添加 100 个自��义提示词，终身免费更新</li>
+                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次使用额度，支持所有免费版功能，可添加 100 个自定义提示词，终身免费更新</li>
                   <li><span className="font-medium">专业版</span>：¥89 买断，无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板，终身免费更新</li>
                   <li><span className="font-medium">云端版</span>：即将推出，包含专业版所有功能，额外提供每天 1000 次云端 AI 服务调用，无需配置 API</li>
                 </ul>
@@ -480,7 +510,7 @@ export default function App() {
             <AccordionItem value="item-3">
               <AccordionTrigger>如何配置 API？</AccordionTrigger>
               <AccordionContent>
-                在设置面板中，你可以轻松配�� OpenAI API。我们提供详细的配置指南，确保你能快速开始使用。
+                在设置面板中，你可以轻松配置 OpenAI API。我们提供详细的配置指南，确保你能快速开始使用。
                 未来推出的云端版用户可以直接使用我们提供的云端服务，无需配置个人 API。
               </AccordionContent>
             </AccordionItem>
@@ -570,7 +600,7 @@ export default function App() {
 
             {/* Contact */}
             <div>
-              <h3 className="mb-4 text-sm font-semibold">联系我们</h3>
+              <h3 className="mb-4 text-sm font-semibold">联系我���</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 {/* <li>
                   <a href="#" className="hover:text-primary">反馈建议</a>
