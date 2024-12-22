@@ -114,6 +114,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex gap-4 text-sm text-muted-foreground">
                 <Link to="/privacy-policy" className="hover:text-primary">隐私政策</Link>
                 <Link to="/terms-of-service" className="hover:text-primary">服务条款</Link>
+                <Link to="/refund-policy" className="hover:text-primary">退款政策</Link>
               </div>
             </div>
           </div>

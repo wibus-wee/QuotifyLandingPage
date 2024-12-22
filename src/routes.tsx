@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import App from "./App"
 import PrivacyPolicy from "./pages/privacy-policy"
 import TermsOfService from "./pages/terms-of-service"
+import RefundPolicy from "./pages/refund-policy"
 
 export const router = createBrowserRouter([
   {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
   {
     path: "/terms-of-service",
     element: <TermsOfService />,
+  },
+  {
+    path: "/refund-policy",
+    element: <RefundPolicy />,
   },
 ]) 
