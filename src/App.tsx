@@ -227,7 +227,7 @@ export default function App() {
             {
               type: "basic",
               title: "基础版",
-              badge: "入门首��",
+              badge: "入门首选",
               price: "¥49",
               period: "永久",
               description: "一次付费，终身使用",
@@ -376,7 +376,7 @@ export default function App() {
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
                   <li><span className="font-medium">免费版</span>：每天 100 次使用额度，支持基础语录类型和 OpenAI API，可添加 10 个自定义提示词</li>
-                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次��用额度，支持所有免费版功能，可添加 100 个自定义提示词，一年内免费更新</li>
+                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次使用额度，支持所有免费版功能，可添加 100 个自定义提示词，一年内免费更新</li>
                   <li><span className="font-medium">专业版</span>：¥89 买断，无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板，一年内免费更新</li>
                   <li><span className="font-medium">云端版</span>：即将推出，包含专业版所有功能，额外提供每天 1000 次云端 AI 服务调用，无需配置 API</li>
                 </ul>
@@ -415,7 +415,7 @@ export default function App() {
               <AccordionTrigger>数据安全如何保障？</AccordionTrigger>
               <AccordionContent>
                 我们高度重视用户数据安全。所有的 API 调用都是端到端加密的，不会存储任何用户的输入内容。
-                所有数据都在本地处理，确保你的隐私安全。未��推出的云端版本将采用行业标准的加密方案，
+                所有数据都在本地处理，确保你的隐私安全。未推出的云端版本将采用行业标准的加密方案，
                 确保云端数据的安全性。
               </AccordionContent>
             </AccordionItem>
