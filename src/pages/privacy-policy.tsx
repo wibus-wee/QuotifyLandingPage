@@ -21,68 +21,52 @@ export default function PrivacyPolicy() {
             transition={{ duration: 0.8 }}
             className="rounded-lg bg-background/80 p-8 backdrop-blur-sm"
           >
-            <h1 className="mb-8 text-3xl font-bold">隐私政策</h1>
+            <h1 className="mb-12 text-center text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text ">
+              Privacy Policy
+            </h1>
             
-            <div className="space-y-6 text-muted-foreground">
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">1. 信息收集</h2>
-                <p>我们仅收集运行应用程序所必需的信息。这包括：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>基本使用数据（如使用频率、功能使用情况等）</li>
-                  <li>崩溃报告和性能数据</li>
-                  <li>您主动提供的反馈信息</li>
-                </ul>
-              </section>
+            <div className="prose prose-invert max-w-none">
+              <p>
+                Thank you for choosing to use our app. We highly value the privacy of our users and are committed to protecting your personal information. This Privacy Policy provides detailed information on how we collect, use, store, and protect your personal information. Before using our App, please read and ensure that you fully understand and agree to the contents of this Privacy Policy.
+              </p>
 
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">2. 数据使用</h2>
-                <p>我们使用收集的信息来：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>改进和优化应用程序性能</li>
-                  <li>开发新功能</li>
-                  <li>提供客户支持</li>
-                  <li>发送重要通知</li>
-                </ul>
-              </section>
+              <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text ">
+                Information Collection and Use
+              </h2>
+              <p>
+                Our app only accesses your local image files to provide image compression and optimization services. We explicitly state and guarantee that we do not collect, read, or transmit any of your personal information, user information, or application usage data.
+              </p>
 
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">3. 数据保护</h2>
-                <p>我们采取以下措施保护您的数据：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>所有数据传输采用加密方式</li>
-                  <li>定期安全审查和更新</li>
-                  <li>严格的内部数据访问控制</li>
-                </ul>
-              </section>
+              <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text ">
+                Information Storage
+              </h2>
+              <p>
+                Our app reads local image files on your device, and all image processing and optimization operations are carried out locally without uploading any data to servers or cloud storage. Your image files will not be retained on our servers, and we do not store your image files anywhere.
+              </p>
 
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">4. 第三方服务</h2>
-                <p>我们使用的第三方服务包括：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>OpenAI API - 用于生成内容</li>
-                  <li>支付服务提供商 - 用于处理付款</li>
-                </ul>
-              </section>
+              <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text ">
+                Third-Party Services
+              </h2>
+              <p>
+                Our app does not use any third-party services, including advertising services, analytics tools, or social media plugins. We assure you that your data will not be shared with any third parties.
+              </p>
 
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">5. 您的权利</h2>
-                <p>作为用户，您有权：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>访问您的个人数据</li>
-                  <li>要求更正不准确的数据</li>
-                  <li>要求删除您的数据</li>
-                  <li>反对数据处理</li>
-                </ul>
-              </section>
+              <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text ">
+                Updates to the Privacy Policy
+              </h2>
+              <p>
+                We may update this Privacy Policy from time to time to reflect changes in the App's features or changes in laws and regulations. The updated Privacy Policy will take effect within our App and will be published on this page along with the update date.
+              </p>
 
-              <section>
-                <h2 className="mb-4 text-xl font-semibold text-foreground">6. 联系我们</h2>
-                <p>如果您对我们的隐私政策有任何疑问，请通过以下方式联系我们：</p>
-                <ul className="ml-6 mt-2 list-disc space-y-2">
-                  <li>电子邮件：wibus@qq.com</li>
-                  <li>GitHub Issues</li>
-                </ul>
-              </section>
+              <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text ">
+                Contact Us
+              </h2>
+              <p>
+                If you have any questions or comments about this Privacy Policy, or if you need to access, correct, update, or delete your personal information, please contact us at{' '}
+                <a href="mailto:your-email@example.com" className="text-primary hover:underline">
+                  your-email@example.com
+                </a>
+              </p>
             </div>
           </motion.div>
         </div>
