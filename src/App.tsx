@@ -394,7 +394,7 @@ export default function App() {
             <AccordionItem value="item-4">
               <AccordionTrigger>支持哪些支付方式？</AccordionTrigger>
               <AccordionContent>
-                我们支持支付宝、微信支付等主流支付方式。选择你想要的版本后，点击购买按钮，
+                我们支持主流支付方式。选择你想要的版本后，点击购买按钮，
                 根据提示完成一次性付款即可。系统会自动为你开通终身使用权限，立即可用。
               </AccordionContent>
             </AccordionItem>
