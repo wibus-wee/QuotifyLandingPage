@@ -17,69 +17,11 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
 import Safari from "@/components/ui/safari"
+import Layout from "@/components/layout"
 
 export default function App() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
-      {/* Header */}
-      <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <img
-                src="/icon.png"
-                alt="Quotify Logo"
-                className="size-8"
-              />
-              <span className="text-xl font-bold">Quotify</span>
-            </div>
-            <NavigationMenu>
-              <NavigationMenuList className="hidden gap-6 md:flex">
-                {[
-                  { href: "#features", label: "功能" },
-                  { href: "#pricing", label: "价格" },
-                  { href: "#faq", label: "常见问题" }
-                ].map(item => (
-                  <NavigationMenuItem key={item.href}>
-                    <NavigationMenuLink
-                      href={item.href}
-                      className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const element = document.querySelector(item.href);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                    >
-                      {item.label}
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="hidden items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary md:flex">
-              <svg viewBox="0 0 24 24" className="size-4 fill-current" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.539 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
-              </svg>
-              macOS Native
-            </div>
-            <ShimmerButton>
-              <span className="text-primary">立即下载</span>
-            </ShimmerButton>
-          </div>
-        </div>
-      </header>
-
-      {/* Background Effects */}
-      <RetroGrid className="absolute inset-0" />
-      <Particles
-        quantity={200}
-        className="absolute inset-0"
-      />
-
+    <Layout>
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center px-4">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 lg:flex-row lg:items-center">
@@ -289,7 +231,7 @@ export default function App() {
             {
               type: "basic",
               title: "基础版",
-              badge: "入门首选",
+              badge: "入门首��",
               price: "¥49",
               period: "永久",
               description: "一次付费，终身使用",
@@ -303,7 +245,7 @@ export default function App() {
                 "OpenAI API 支持",
                 "最多添加 100 个自定义提示词",
                 "社区技术支持",
-                "终身免费更新"
+                "1年内免费更新"
               ]
             },
             {
@@ -325,7 +267,7 @@ export default function App() {
                 "无限制自定义提示词",
                 "自定义语录模板",
                 "优先技术支持",
-                "终身免费更新"
+                "1年内免费更新"
               ]
             },
             {
@@ -416,68 +358,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      {/* <section className="relative px-4 py-20">
-        <GradualSpacing
-          text="用户评价"
-          className="mb-12 text-center text-3xl font-bold"
-        />
-
-        <Marquee
-          className="py-12"
-          pauseOnHover
-          speed={20}
-        >
-          {[
-            {
-              name: "张三",
-              role: "自媒体作者",
-              content: "Quotify 让我的创作过程变得更加有趣，再也不用为找梗发愁了！",
-              avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" // 使用 DiceBear 生成头像
-            },
-            {
-              name: "李四",
-              role: "社区运营",
-              content: "AI 生成的内容非常智能，完全符合我的需求，强烈推荐！",
-              avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka"
-            },
-            {
-              name: "王五",
-              role: "学生",
-              content: "界面简洁，使用方便，生成的内容也很有趣，很喜欢！",
-              avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bailey"
-            },
-            {
-              name: "赵六",
-              role: "内容创作者",
-              content: "一键生成各种风格的文案，提高了我的���作效率！",
-              avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Charlie"
-            }
-          ].map((testimonial, i) => (
-            <MagicCard
-              key={i}
-              className="mx-4 w-[350px] shrink-0"
-              gradientSize={300}
-            >
-              <CardHeader className="flex flex-row items-center gap-4">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="size-12 rounded-full bg-secondary"
-                />
-                <div>
-                  <CardTitle>{testimonial.name}</CardTitle>
-                  <CardDescription>{testimonial.role}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent>
-                {testimonial.content}
-              </CardContent>
-            </MagicCard>
-          ))}
-        </Marquee>
-      </section> */}
-
       {/* FAQ Section */}
       <section id="faq" className="relative px-4 py-20 bg-secondary/50">
         <GradualSpacing
@@ -500,8 +380,8 @@ export default function App() {
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
                   <li><span className="font-medium">免费版</span>：每天 100 次使用额度，支持基础语录类型和 OpenAI API，可添加 10 个自定义提示词</li>
-                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次使用额度，支持所有免费版功能，可添加 100 个自定义提示词，终身免费更新</li>
-                  <li><span className="font-medium">专业版</span>：¥89 买断，无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板，终身免费更新</li>
+                  <li><span className="font-medium">基础版</span>：¥49 买断，每天 1000 次��用额度，支持所有免费版功能，可添加 100 个自定义提示词，一年内免费更新</li>
+                  <li><span className="font-medium">专业版</span>：¥89 买断，无限使用次数，支持更多 AI 服务，无限制自定义提示词和语录模板，一年内免费更新</li>
                   <li><span className="font-medium">云端版</span>：即将推出，包含专业版所有功能，额外提供每天 1000 次云端 AI 服务调用，无需配置 API</li>
                 </ul>
               </AccordionContent>
@@ -539,96 +419,13 @@ export default function App() {
               <AccordionTrigger>数据安全如何保障？</AccordionTrigger>
               <AccordionContent>
                 我们高度重视用户数据安全。所有的 API 调用都是端到端加密的，不会存储任何用户的输入内容。
-                所有数据都在本地处理，确保你的隐私安全。未来推出的云端版本将采用行业标准的加密方案，
+                所有数据都在本地处理，确保你的隐私安全。未��推出的云端版本将采用行业标准的加密方案，
                 确保云端数据的安全性。
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t bg-background/80 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {/* Logo & Description */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <img
-                  src="/icon.png"
-                  alt="Quotify Logo"
-                  className="size-8"
-                />
-                <span className="text-xl font-bold">Quotify</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                妙笔生花，一键成章
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="mb-4 text-sm font-semibold">快速链接</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li>
-                  <a href="#features" className="hover:text-primary">功能介绍</a>
-                </li>
-                <li>
-                  <a href="#pricing" className="hover:text-primary">定价方案</a>
-                </li>
-                <li>
-                  <a href="#faq" className="hover:text-primary">常见问题</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h3 className="mb-4 text-sm font-semibold">资源</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                {/* <li>
-                  <a href="#" className="hover:text-primary">使用文档</a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">更新日志</a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">GitHub</a>
-                </li> */}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h3 className="mb-4 text-sm font-semibold">联系我���</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                {/* <li>
-                  <a href="#" className="hover:text-primary">反馈建议</a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">加入社区</a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">商务合作</a>
-                </li> */}
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="mt-8 border-t pt-8">
-            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Quotify. All rights reserved.
-              </p>
-              <div className="flex gap-4 text-sm text-muted-foreground">
-                <a href="#" className="hover:text-primary">隐私政策</a>
-                <a href="#" className="hover:text-primary">服务条款</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </Layout>
   )
 }
