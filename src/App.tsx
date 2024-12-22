@@ -1,6 +1,4 @@
 import SparklesText from "@/components/ui/sparkles-text"
-import RetroGrid from "@/components/ui/retro-grid"
-import Particles from "@/components/ui/particles"
 import AnimatedShinyText from "@/components/ui/animated-shiny-text"
 import GradualSpacing from "@/components/ui/gradual-spacing"
 import ShimmerButton from "@/components/ui/shimmer-button"
@@ -13,10 +11,8 @@ import {
 } from "@/components/ui/accordion"
 import { MagicCard } from "@/components/ui/magic-card"
 import { NeonGradientCard } from "@/components/ui/neon-gradient-card"
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu"
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
-import Safari from "@/components/ui/safari"
 import Layout from "@/components/layout"
 
 export default function App() {
