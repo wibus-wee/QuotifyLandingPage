@@ -20,9 +20,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <NavigationMenu>
               <NavigationMenuList className="hidden gap-6 md:flex">
                 {[
-                  { href: "/#features", label: "功能" },
-                  { href: "/#pricing", label: "价格" },
-                  { href: "/#faq", label: "常见问题" }
+                  { href: "/#features", label: "Features" },
+                  { href: "/#pricing", label: "Pricing" },
+                  { href: "/#faq", label: "FAQ" }
                 ].map(item => (
                   <NavigationMenuItem key={item.href}>
                     <NavigationMenuLink
@@ -44,7 +44,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               macOS Native
             </div>
             <ShimmerButton>
-              <span className="text-primary">立即下载</span>
+              <span className="text-primary">Download Now</span>
             </ShimmerButton>
           </div>
         </div>
@@ -70,36 +70,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-xl font-bold">Quotify</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                妙笔生花，一键成章
+                Craft Perfect Quotes Instantly
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="mb-4 text-sm font-semibold">快速链接</h3>
+              <h3 className="mb-4 text-sm font-semibold">Quick Links</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li>
-                  <Link to="/#features" className="hover:text-primary">功能介绍</Link>
+                  <Link to="/#features" className="hover:text-primary">Features</Link>
                 </li>
                 <li>
-                  <Link to="/#pricing" className="hover:text-primary">定价方案</Link>
+                  <Link to="/#pricing" className="hover:text-primary">Pricing</Link>
                 </li>
                 <li>
-                  <Link to="/#faq" className="hover:text-primary">常见问题</Link>
+                  <Link to="/#faq" className="hover:text-primary">FAQ</Link>
                 </li>
               </ul>
             </div>
 
             {/* Resources */}
             <div>
-              <h3 className="mb-4 text-sm font-semibold">资源</h3>
+              <h3 className="mb-4 text-sm font-semibold">Resources</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
               </ul>
             </div>
 
             {/* Contact */}
             <div>
-              <h3 className="mb-4 text-sm font-semibold">联系我们</h3>
+              <h3 className="mb-4 text-sm font-semibold">Contact</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
               </ul>
             </div>
@@ -112,9 +112,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 © {new Date().getFullYear()} Quotify. All rights reserved.
               </p>
               <div className="flex gap-4 text-sm text-muted-foreground">
-                <Link to="/privacy-policy" className="hover:text-primary">隐私政策</Link>
-                <Link to="/terms-of-service" className="hover:text-primary">服务条款</Link>
-                <Link to="/refund-policy" className="hover:text-primary">退款政策</Link>
+                <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="hover:text-primary">Terms of Service</Link>
+                <Link to="/refund-policy" className="hover:text-primary">Refund Policy</Link>
               </div>
             </div>
           </div>
