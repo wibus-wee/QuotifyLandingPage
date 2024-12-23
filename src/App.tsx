@@ -248,7 +248,7 @@ export default function App() {
               type: "pro",
               title: "Professional",
               badge: "Recommended",
-              price: "$89",
+              price: "$12",
               period: "Forever",
               description: "One-time payment",
               neonColors: {
@@ -379,7 +379,7 @@ export default function App() {
                 <ul className="list-disc space-y-2 pl-4">
                   <li><span className="font-medium">Free</span>：100 uses per day, supports basic quote types and OpenAI API, up to 10 custom prompts</li>
                   <li><span className="font-medium">Basic</span>：$7 one-time payment, 1000 uses per day, supports all free features, up to 100 custom prompts, free updates for 1 year</li>
-                  <li><span className="font-medium">Professional</span>：$89 one-time payment, unlimited uses, supports more AI services, unlimited custom prompts and quote templates, free updates for 1 year</li>
+                  <li><span className="font-medium">Professional</span>：$12 one-time payment, unlimited uses, supports more AI services, unlimited custom prompts and quote templates, free updates for 1 year</li>
                   <li><span className="font-medium">Cloud</span>：Coming soon, includes all professional features, additional daily 1000 cloud AI service calls, no API configuration required</li>
                 </ul>
               </AccordionContent>
