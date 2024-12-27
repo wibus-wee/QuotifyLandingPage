@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import ShimmerButton from "@/components/ui/shimmer-button"
+import { scrollToElement } from "@/lib/utils"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,17 +21,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <NavigationMenu>
               <NavigationMenuList className="hidden gap-6 md:flex">
                 {[
-                  { href: "/#features", label: "Features" },
-                  { href: "/#pricing", label: "Pricing" },
-                  { href: "/#faq", label: "FAQ" }
+                  { id: "features", label: "Features" },
+                  { id: "pricing", label: "Pricing" },
+                  { id: "faq", label: "FAQ" }
                 ].map(item => (
-                  <NavigationMenuItem key={item.href}>
-                    <NavigationMenuLink
-                      href={item.href}
+                  <NavigationMenuItem key={item.id}>
+                    <button
+                      onClick={() => scrollToElement(item.id)}
                       className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                     >
                       {item.label}
-                    </NavigationMenuLink>
+                    </button>
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
@@ -79,13 +80,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h3 className="mb-4 text-sm font-semibold">Quick Links</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li>
-                  <Link to="/#features" className="hover:text-primary">Features</Link>
+                  <button
+                    onClick={() => scrollToElement("features")}
+                    className="hover:text-primary"
+                  >
+                    Features
+                  </button>
                 </li>
                 <li>
-                  <Link to="/#pricing" className="hover:text-primary">Pricing</Link>
+                  <button
+                    onClick={() => scrollToElement("pricing")}
+                    className="hover:text-primary"
+                  >
+                    Pricing
+                  </button>
                 </li>
                 <li>
-                  <Link to="/#faq" className="hover:text-primary">FAQ</Link>
+                  <button
+                    onClick={() => scrollToElement("faq")}
+                    className="hover:text-primary"
+                  >
+                    FAQ
+                  </button>
                 </li>
               </ul>
             </div>
