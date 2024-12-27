@@ -30,7 +30,7 @@ export default function TermsOfService() {
                 1. Introduction
               </h2>
               <p>
-                Welcome to Quotify! These Terms of Use ("Terms") govern your use of our website and services. By accessing or using Quotify, you agree to comply with and be bound by these Terms. If you do not agree to these Terms, you may not use our services.
+                Welcome to Quotify, a service provided by Wibus Software Technology ("we", "our", or "Company")! These Terms of Use ("Terms") govern your use of our website and services. By accessing or using Quotify, you agree to comply with and be bound by these Terms. If you do not agree to these Terms, you may not use our services.
               </p>
 
               <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text">
@@ -51,14 +51,14 @@ export default function TermsOfService() {
                 4. Changes to Terms
               </h2>
               <p>
-                Quotify reserves the right to modify these Terms at any time. Any changes will be effective immediately upon posting the revised Terms on our website. Your continued use of the services after the posting of changes constitutes your acceptance of such changes. If you do not agree with the changes, please stop using our services.
+                Wibus Software Technology reserves the right to modify these Terms at any time. Any changes will be effective immediately upon posting the revised Terms on our website. Your continued use of the services after the posting of changes constitutes your acceptance of such changes. If you do not agree with the changes, please stop using our services.
               </p>
 
               <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text">
                 5. Limitation of Liability
               </h2>
               <p>
-                To the fullest extent permitted by applicable law, Quotify shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses resulting from your use or inability to use the services.
+                To the fullest extent permitted by applicable law, Wibus Software Technology and Quotify shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses resulting from your use or inability to use the services.
               </p>
 
               <h2 className="text-3xl font-bold mt-8 mb-4 bg-clip-text">
