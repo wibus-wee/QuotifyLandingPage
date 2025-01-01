@@ -14,8 +14,11 @@ import { NeonGradientCard } from "@/components/ui/neon-gradient-card"
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
 import Layout from "@/components/layout"
+import { usePaddle, PRICE_IDS } from './lib/paddle';
 
 export default function App() {
+  const { openCheckout } = usePaddle();
+  
   return (
     <Layout>
       {/* Hero Section */}
@@ -242,7 +245,8 @@ export default function App() {
                 "Up to 100 custom prompts",
                 "Community support",
                 "1 year free updates"
-              ]
+              ],
+              priceId: PRICE_IDS.basic
             },
             {
               type: "pro",
@@ -264,7 +268,8 @@ export default function App() {
                 "Custom quote templates",
                 "Priority technical support",
                 "1 year free updates"
-              ]
+              ],
+              priceId: PRICE_IDS.pro
             },
             {
               type: "cloud",
@@ -347,6 +352,30 @@ export default function App() {
                       </li>
                     ))}
                   </ul>
+                  
+                  {!plan.isComingSoon && plan.type !== 'free' && (
+                    <div className="mt-6">
+                      <ShimmerButton
+                        onClick={() => plan.priceId && openCheckout(plan.priceId)}
+                        className="w-full"
+                        shimmerColor={plan.neonColors.firstColor}
+                      >
+                        <span className="text-primary">Buy Now</span>
+                      </ShimmerButton>
+                    </div>
+                  )}
+                  
+                  {plan.type === 'free' && (
+                    <div className="mt-6">
+                      <ShimmerButton
+                        onClick={() => window.location.href = 'https://github.com/wibus-wee/quotify/releases'}
+                        className="w-full"
+                        shimmerColor={plan.neonColors.firstColor}
+                      >
+                        <span className="text-primary">Download Now</span>
+                      </ShimmerButton>
+                    </div>
+                  )}
                 </CardContent>
               </NeonGradientCard>
             </motion.div>

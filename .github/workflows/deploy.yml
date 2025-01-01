@@ -19,6 +19,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PADDLE_ENV: ${{ vars.PADDLEENV }}
 
     steps:
       - name: Checkout
@@ -47,6 +49,10 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Create .env file
+        run: |
+          echo "$PADDLE_ENV" > .env
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
