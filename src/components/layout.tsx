@@ -112,6 +112,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="mb-4 text-sm font-semibold">Resources</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>
+                  <a href="https://github.com/wibus-studio/Quotify-distribution/issues" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                    GitHub Issues
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -119,6 +124,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h3 className="mb-4 text-sm font-semibold">Contact</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>
+                  <a href="https://github.com/wibus-studio" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                    GitHub
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -127,7 +137,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="mt-8 border-t pt-8">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Quotify. All rights reserved.
+                © {new Date().getFullYear()} Quotify by Wibus Studio. All rights reserved.
               </p>
               <div className="flex gap-4 text-sm text-muted-foreground">
                 <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
