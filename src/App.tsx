@@ -137,10 +137,11 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <GradualSpacing
-            text="Key Features"
+          <div
             className="mb-12 text-center text-3xl font-bold"
-          />
+          >
+            Key Features
+          </div>
         </motion.div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
@@ -228,10 +229,11 @@ export default function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <GradualSpacing
-            text="Pricing Plans"
+          <div
             className="mb-12 text-center text-3xl font-bold"
-          />
+          >
+            Pricing Plans
+          </div>
         </motion.div>
 
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-36 md:grid-cols-3 md:gap-6 lg:gap-12">
