@@ -44,7 +44,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </svg>
               macOS Native
             </div>
-            <ShimmerButton>
+            <ShimmerButton
+              onClick={() => window.open('https://github.com/wibus-studio/Quotify-distribution/releases', '_blank')}
+            >
               <span className="text-primary">Download Now</span>
             </ShimmerButton>
           </div>

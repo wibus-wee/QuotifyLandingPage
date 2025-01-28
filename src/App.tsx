@@ -377,7 +377,7 @@ export default function App() {
                   {plan.type === 'free' && (
                     <div className="mt-6">
                       <ShimmerButton
-                        onClick={() => window.location.href = 'https://github.com/wibus-wee/quotify/releases'}
+                        onClick={() => window.open('https://github.com/wibus-studio/Quotify-distribution/releases', '_blank')}
                         className="w-full"
                         shimmerColor={plan.neonColors.firstColor}
                       >
