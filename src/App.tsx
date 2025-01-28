@@ -149,19 +149,45 @@ export default function App() {
               title: "AI-Powered",
               description: "Intelligent Quote Generation",
               content: "Powered by OpenAI's robust models, combined with crafted prompts to generate high-quality quotes",
-              gradient: "from-purple-500/10"
+              gradient: "from-purple-500/10",
+              icon: "✨"
             },
             {
               title: "Versatile",
               description: "Diverse Quote Types",
               content: "From social media to creative writing, covering various scenarios to make your expression more vivid",
-              gradient: "from-pink-500/10"
+              gradient: "from-pink-500/10",
+              icon: "🎯"
             },
             {
               title: "Easy Integration",
               description: "Seamless Input Experience",
               content: "Smart input field detection, one-click generation and insertion, with global shortcut support",
-              gradient: "from-blue-500/10"
+              gradient: "from-blue-500/10",
+              icon: "⚡"
+            },
+            {
+              title: "Customizable",
+              description: "Prompt Editor",
+              content: "Create and manage your own prompt templates with our intuitive editor, fine-tune AI responses to match your unique style and needs",
+              gradient: "from-green-500/10",
+              icon: "🎨"
+            }
+            ,
+            {
+              title: "Universal Compatibility",
+              description: "Multi-Solution Architecture",
+              content: "Built-in triple-layer architecture ensures uninterrupted service across different software environments and system constraints",
+              gradient: "from-orange-500/10",
+              icon: "🔄"
+            }
+            ,
+            {
+              title: "Smart Parameterization",
+              description: "Dynamic Template Engine", 
+              content: "Template system supports intelligent context awareness, seamlessly integrates selected text and user input.",
+              gradient: "from-indigo-500/10",
+              icon: "⚙️"
             }
           ].map((feature, index) => (
             <motion.div
@@ -172,16 +198,19 @@ export default function App() {
               transition={{ delay: index * 0.2, duration: 0.8 }}
             >
               <MagicCard
-                className="relative overflow-hidden"
+                className="relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 gradientSize={400}
               >
-                <CardHeader>
-                  <CardTitle>{feature.title}</CardTitle>
-                  <CardDescription>{feature.description}</CardDescription>
+                <CardHeader className="relative z-10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl">
+                    {feature.icon}
+                  </div>
+                  <CardTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">{feature.title}</CardTitle>
+                  <CardDescription className="text-sm font-medium text-muted-foreground">{feature.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} to-transparent opacity-50 blur-xl`} />
-                  <p className="relative">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} to-transparent opacity-50 blur-2xl`} />
+                  <p className="relative text-sm leading-relaxed">
                     {feature.content}
                   </p>
                 </CardContent>
@@ -205,21 +234,21 @@ export default function App() {
           />
         </motion.div>
 
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-4 md:gap-8 lg:gap-12">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-36 md:grid-cols-3 md:gap-6 lg:gap-12">
           {[
             {
               type: "free",
               title: "Free",
               badge: "Trial",
               price: "$0",
-              period: "Forever",
+              period: "LifeTime",
               description: "No credit card required",
               neonColors: {
                 firstColor: "#4F46E5",
                 secondColor: "#7C3AED"
               },
               features: [
-                "100 uses per day",
+                "1000 uses per day",
                 "Tianxing API support",
                 "OpenAI API support",
                 "Up to 10 custom prompts",
@@ -228,46 +257,24 @@ export default function App() {
               ]
             },
             {
-              type: "basic",
-              title: "Basic",
-              badge: "Popular",
-              price: "$7",
-              period: "Lifetime",
+              type: "pro",
+              title: "Professional",
+              badge: "Recommended",
+              price: "$6",
+              period: "LifeTime",
               description: "One-time payment",
               neonColors: {
                 firstColor: "#F59E0B",
                 secondColor: "#D97706"
               },
-              features: [
-                "1000 uses per day",
-                "All free features",
-                "OpenAI API support",
-                "Up to 100 custom prompts",
-                "Community support",
-                "1 year free updates"
-              ],
-              priceId: PRICE_IDS.basic
-            },
-            {
-              type: "pro",
-              title: "Professional",
-              badge: "Recommended",
-              price: "$12",
-              period: "Forever",
-              description: "One-time payment",
-              neonColors: {
-                firstColor: "#7C3AED",
-                secondColor: "#EC4899"
-              },
               isPopular: true,
               features: [
                 "Unlimited uses",
-                "All basic features",
+                "All features",
                 "More custom AI services",
                 "Unlimited custom prompts",
                 "Custom quote templates",
-                "Priority technical support",
-                "1 year free updates"
+                "Priority technical support"
               ],
               priceId: PRICE_IDS.pro
             },
@@ -406,9 +413,8 @@ export default function App() {
               <AccordionTrigger>What are the differences between versions?</AccordionTrigger>
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
-                  <li><span className="font-medium">Free</span>：100 uses per day, supports basic quote types and OpenAI API, up to 10 custom prompts</li>
-                  <li><span className="font-medium">Basic</span>：$7 one-time payment, 1000 uses per day, supports all free features, up to 100 custom prompts, free updates for 1 year</li>
-                  <li><span className="font-medium">Professional</span>：$12 one-time payment, unlimited uses, supports more AI services, unlimited custom prompts and quote templates, free updates for 1 year</li>
+                  <li><span className="font-medium">Free</span>：1000 uses per day, supports basic quote types and OpenAI API, up to 10 custom prompts</li>
+                  <li><span className="font-medium">Professional</span>：$6 one-time payment, unlimited uses, supports more AI services, unlimited custom prompts and quote templates</li>
                   <li><span className="font-medium">Cloud</span>：Coming soon, includes all professional features, additional daily 1000 cloud AI service calls, no API configuration required</li>
                 </ul>
               </AccordionContent>
@@ -434,10 +440,7 @@ export default function App() {
               <AccordionTrigger>How to get technical support?</AccordionTrigger>
               <AccordionContent>
                 <ul className="list-disc space-y-2 pl-4">
-                  <li><span className="font-medium">Documentation Center</span>：Provides detailed usage guides and common problem solutions</li>
                   <li><span className="font-medium">GitHub Issues</span>：You can submit questions and feature suggestions</li>
-                  <li><span className="font-medium">Community Support</span>：Join our user community to share usage experiences</li>
-                  <li><span className="font-medium">Exclusive Support</span>：Paid users enjoy priority response services</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
