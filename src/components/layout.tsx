@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
 import ShimmerButton from "@/components/ui/shimmer-button"
 import { scrollToElement } from "@/lib/utils"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const navigate = useNavigate()
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       {/* Header */}
@@ -21,13 +22,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <NavigationMenu>
               <NavigationMenuList className="hidden gap-6 md:flex">
                 {[
-                  { id: "features", label: "Features" },
-                  { id: "pricing", label: "Pricing" },
-                  { id: "faq", label: "FAQ" }
+                  { id: "features", label: "Features", path: '/' },
+                  { id: "pricing", label: "Pricing", path: '/' },
+                  { id: "faq", label: "FAQ", path: '/' }
                 ].map(item => (
                   <NavigationMenuItem key={item.id}>
                     <button
-                      onClick={() => scrollToElement(item.id)}
+                      onClick={async () => {
+                        await navigate(item.path)
+                        scrollToElement(item.id)
+                      }}
                       className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                     >
                       {item.label}
