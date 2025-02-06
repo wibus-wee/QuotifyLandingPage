@@ -14,6 +14,8 @@ interface PricingPlan {
   title: string;
   badge: string;
   price: string;
+  originalPrice?: string;
+  discountLabel?: string;
   period: string;
   description: string;
   neonColors: {
@@ -52,6 +54,8 @@ const pricingPlans: PricingPlan[] = [
     title: "Professional",
     badge: "Recommended",
     price: "$6",
+    originalPrice: "$10",
+    discountLabel: "40% OFF",
     period: "LifeTime",
     description: "One-time payment",
     neonColors: {
@@ -141,8 +145,21 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
                 </div>
                 <CardTitle className="text-2xl">{plan.title}</CardTitle>
                 <div className="space-y-1">
-                  <CardDescription className="text-xl font-semibold">
-                    {plan.price}{plan.period ? `/${plan.period}` : ''}
+                  <CardDescription className="text-xl font-semibold flex items-center gap-2">
+                    {plan.originalPrice ? (
+                      <>
+                        <span className="text-2xl font-bold text-primary">{plan.price}</span>
+                        <span className="text-base line-through text-muted-foreground">{plan.originalPrice}</span>
+                        {plan.discountLabel && (
+                          <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-500/10 text-green-500">
+                            {plan.discountLabel}
+                          </span>
+                        )}
+                      </>
+                    ) : (
+                      plan.price
+                    )}
+                    {plan.period ? `/${plan.period}` : ''}
                   </CardDescription>
                   {!plan.isComingSoon && (
                     <CardDescription className="text-sm text-muted-foreground">
