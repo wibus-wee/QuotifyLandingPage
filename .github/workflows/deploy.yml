@@ -48,9 +48,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      # - name: Create .env file
-      #   run: |
-      #     echo "$PADDLE_ENV" > .env
+      - name: Create .env file
+        run: |
+          echo "$PADDLE_ENV" > .env
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
