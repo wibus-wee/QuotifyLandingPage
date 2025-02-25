@@ -15,9 +15,10 @@ const faqItems = [
     question: "What are the differences between versions?",
     answer: (
       <ul className="list-disc space-y-2 pl-4">
-        <li><span className="font-medium">Free</span>：1000 uses per day, supports basic quote types and OpenAI API, up to 10 custom prompts</li>
+        <li><span className="font-medium">Early Access Stage</span>：All features are available and unlimited uses.</li>
+        {/* <li><span className="font-medium">Free</span>：1000 uses per day, supports basic quote types and OpenAI API, up to 10 custom prompts</li>
         <li><span className="font-medium">Professional</span>：$6 one-time payment, unlimited uses, supports more AI services, unlimited custom prompts and quote templates</li>
-        <li><span className="font-medium">Cloud</span>：Coming soon, includes all professional features, additional daily 1000 cloud AI service calls, no API configuration required</li>
+        <li><span className="font-medium">Cloud</span>：Coming soon, includes all professional features, additional daily 1000 cloud AI service calls, no API configuration required</li> */}
       </ul>
     )
   },

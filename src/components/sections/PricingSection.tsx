@@ -1,9 +1,14 @@
-import { motion } from "framer-motion"
-import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { NeonGradientCard } from "@/components/ui/neon-gradient-card"
-import ShimmerButton from "@/components/ui/shimmer-button"
-import { Check } from "lucide-react"
-import { PRICE_IDS } from '@/lib/paddle'
+import { motion } from "framer-motion";
+import {
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
+import ShimmerButton from "@/components/ui/shimmer-button";
+import { Check } from "lucide-react";
+import { PRICE_IDS } from "@/lib/paddle";
 
 interface PricingSectionProps {
   openCheckout: (priceId: string) => void;
@@ -38,7 +43,7 @@ const pricingPlans: PricingPlan[] = [
     description: "No credit card required",
     neonColors: {
       firstColor: "#4F46E5",
-      secondColor: "#7C3AED"
+      secondColor: "#7C3AED",
     },
     features: [
       "1000 uses per day",
@@ -46,8 +51,8 @@ const pricingPlans: PricingPlan[] = [
       "OpenAI API support",
       "Up to 10 custom prompts",
       "Basic community support",
-      "Auto updates"
-    ]
+      "Auto updates",
+    ],
   },
   {
     type: "pro",
@@ -60,7 +65,7 @@ const pricingPlans: PricingPlan[] = [
     description: "One-time payment",
     neonColors: {
       firstColor: "#F59E0B",
-      secondColor: "#D97706"
+      secondColor: "#D97706",
     },
     isPopular: true,
     features: [
@@ -69,9 +74,9 @@ const pricingPlans: PricingPlan[] = [
       "More custom AI services",
       "Unlimited custom prompts",
       "Custom quote templates",
-      "Priority technical support"
+      "Priority technical support",
     ],
-    priceId: PRICE_IDS.pro
+    priceId: PRICE_IDS.pro,
   },
   {
     type: "cloud",
@@ -82,7 +87,7 @@ const pricingPlans: PricingPlan[] = [
     description: "More exciting features coming soon",
     neonColors: {
       firstColor: "#6B7280",
-      secondColor: "#9CA3AF"
+      secondColor: "#9CA3AF",
     },
     isComingSoon: true,
     features: [
@@ -92,14 +97,35 @@ const pricingPlans: PricingPlan[] = [
       "More custom AI services",
       "No API configuration required",
       "Cloud API service",
-      "Priority technical support"
-    ]
-  }
-]
+      "Priority technical support",
+    ],
+  },
+];
 
 export default function PricingSection({ openCheckout }: PricingSectionProps) {
   return (
-    <section id="pricing" className="relative px-4 py-20 bg-gradient-to-b from-background to-secondary/20">
+    <section
+      id="pricing"
+      className="relative px-4 py-20 bg-gradient-to-b from-background to-secondary/20"
+    >
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="max-w-2xl mx-auto mb-12 text-center"
+      >
+        <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          {/* 🎉 早期访问特权 */}
+          🎉 Early Access Privilege
+        </div>
+        <p className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 mb-4">
+          During the early stage of the product, we provide free access to all
+          users. Grab this opportunity to experience all the advanced features
+          before we switch to a paid model!
+        </p>
+      </motion.div>
+
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -127,10 +153,10 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
               } ${plan.isComingSoon ? "opacity-75" : ""}`}
               neonColors={plan.neonColors}
             >
-              <div 
-                className="absolute inset-x-0 top-0 h-1.5" 
+              <div
+                className="absolute inset-x-0 top-0 h-1.5"
                 style={{
-                  background: `linear-gradient(to right, ${plan.neonColors.firstColor}, ${plan.neonColors.secondColor})`
+                  background: `linear-gradient(to right, ${plan.neonColors.firstColor}, ${plan.neonColors.secondColor})`,
                 }}
               />
               {plan.isPopular && (
@@ -148,8 +174,12 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
                   <CardDescription className="text-xl font-semibold flex items-center gap-2">
                     {plan.originalPrice ? (
                       <>
-                        <span className="text-2xl font-bold text-primary">{plan.price}</span>
-                        <span className="text-base line-through text-muted-foreground">{plan.originalPrice}</span>
+                        <span className="text-2xl font-bold text-primary">
+                          {plan.price}
+                        </span>
+                        <span className="text-base line-through text-muted-foreground">
+                          {plan.originalPrice}
+                        </span>
                         {plan.discountLabel && (
                           <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-500/10 text-green-500">
                             {plan.discountLabel}
@@ -159,7 +189,7 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
                     ) : (
                       plan.price
                     )}
-                    {plan.period ? `/${plan.period}` : ''}
+                    {plan.period ? `/${plan.period}` : ""}
                   </CardDescription>
                   {!plan.isComingSoon && (
                     <CardDescription className="text-sm text-muted-foreground">
@@ -184,8 +214,8 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
                     </li>
                   ))}
                 </ul>
-                
-                {!plan.isComingSoon && plan.type !== 'free' && (
+
+                {!plan.isComingSoon && plan.type !== "free" && (
                   <div className="mt-6">
                     <ShimmerButton
                       onClick={() => plan.priceId && openCheckout(plan.priceId)}
@@ -196,11 +226,16 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
                     </ShimmerButton>
                   </div>
                 )}
-                
-                {plan.type === 'free' && (
+
+                {plan.type === "free" && (
                   <div className="mt-6">
                     <ShimmerButton
-                      onClick={() => window.open('https://github.com/wibus-studio/Quotify-distribution/releases', '_blank')}
+                      onClick={() =>
+                        window.open(
+                          "https://github.com/wibus-studio/Quotify-distribution/releases",
+                          "_blank"
+                        )
+                      }
                       className="w-full"
                       shimmerColor={plan.neonColors.firstColor}
                     >
@@ -213,6 +248,24 @@ export default function PricingSection({ openCheckout }: PricingSectionProps) {
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-3xl mx-auto mb-12 text-center mt-12"
+      >
+        <div className="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/10">
+          <p className="text-muted-foreground text-sm">
+            During the early access privilege period, the purchase of the
+            professional version will be considered as development support.
+            After the early access privilege period ends, professional buyers
+            will still be able to enjoy all the features of the later
+            professional version.
+          </p>
+        </div>
+      </motion.div>
     </section>
-  )
-} 
+  );
+}
