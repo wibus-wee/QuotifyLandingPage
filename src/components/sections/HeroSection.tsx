@@ -44,7 +44,14 @@ export default function HeroSection() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <ShimmerButton>
+            <ShimmerButton
+              onClick={() => {
+                window.open(
+                  "https://github.com/wibus-studio/Quotify-distribution/releases",
+                  "_blank"
+                )
+              }}
+            >
               <span className="text-primary">
                 Download Now
               </span>
