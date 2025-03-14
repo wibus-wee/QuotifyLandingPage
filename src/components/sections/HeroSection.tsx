@@ -47,7 +47,7 @@ export default function HeroSection() {
             <ShimmerButton
               onClick={() => {
                 window.open(
-                  "https://github.com/wibus-studio/Quotify-distribution/releases",
+                  "https://github.com/wibus-studio/Quotify-distribution/releases/latest/download/Quotify.app.zip",
                   "_blank"
                 )
               }}
